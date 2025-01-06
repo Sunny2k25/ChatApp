@@ -1,7 +1,7 @@
 export const signup = (req,res)=>{
     const {fullName,email,password} = req.body
     try {
-        //
+        //hashmap
     } catch (error) {
         
     }
