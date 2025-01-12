@@ -49,7 +49,7 @@ export const getMessages = async (req, res) =>{
  * so let's keep in mind while building it
  */
 
-export const sendMessages = async (req, res) =>{
+export const sendMessage = async (req, res) =>{
     try {
         //grab the text and image from request.body and grab the receiver id
         const {text, image} = req.body;
