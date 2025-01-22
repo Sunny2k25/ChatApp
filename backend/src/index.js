@@ -17,13 +17,13 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
     origin: "http://localhost:5173",
-    Credential: true,
+    credentials: true,
 }));
 
 app.use("/api/auth",authRoutes)
 app.use("/api/message",messageRoutes)
 
 app.listen(PORT ,() =>{
-    console.log("server is running on port PORT:" + PORT);
+    console.log("server is running on PORT:" + PORT);
     connectDB();
 })
