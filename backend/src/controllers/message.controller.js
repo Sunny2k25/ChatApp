@@ -5,7 +5,7 @@ import cloudinary from "../lib/cloudinary.js";
 export const getUsersForSidebar  = async (req, res) =>{
     try {
         const loggedInUserId = req.user._id;
-        const filteredUsers = (await User.find({_id: {$ne: loggedInUserId}})).select("-password");
+        const filteredUsers = await User.find({ _id: {$ne: loggedInUserId}}).select("-password");
 
         res.status(200).json(filteredUsers);
 
@@ -20,22 +20,22 @@ export const getUsersForSidebar  = async (req, res) =>{
 
 export const getMessages = async (req, res) =>{
     try {
-        const {id: usertoChatId } = req.params
+        const {id: userToChatId } = req.params;
         const myId = req.user_id;
 
-        const message = await Message.find({
+        const messages = await Message.find({
             
             $or: [
                 //Basically we say find all the messages where sender is me and receiver is other user
-                {senderId:myId, receiverId: usertoChatId},
+                {senderId:myId, receiverId: userToChatId},
                 //Basically we say find all the messages where sender is other user and I am the receiver
 
-                {senderId:usertoChatId, receiverId: myId}
+                {senderId:userToChatId, receiverId: myId}
             ]
 
             
         })
-        res.status(200).json(message)
+        res.status(200).json(messages)
     } catch (error) {
         console.log("Error in getMessages controller: ", error.message);
 
