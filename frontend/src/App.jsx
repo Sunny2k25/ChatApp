@@ -16,8 +16,11 @@ import { useThemeStore } from "./store/useThemeStore.js";
 //Zustand is global state management libaray Let's say we are going to need a state for authenticated user
 
 const App = () => {
-  const {authUser, checkAuth,isCheckingAuth} = useAuthStore()
+  const {authUser, checkAuth,isCheckingAuth, onlineUsers} = useAuthStore()
   const {theme}= useThemeStore()
+
+  console.log({onlineUsers});
+  
   useEffect(()=>{
     checkAuth()
   },[checkAuth]);
