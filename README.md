@@ -42,4 +42,41 @@ A real-time chat application built using the MERN stack (MongoDB, Express.js, Re
 1. Clone the repository
 ```bash
 git clone https://github.com/Sunny2k25/ChatCom.git
-cd ChatCom
+cd ChatCom 
+```
+
+2. Install dependencies for backend
+```bash
+cd backend
+npm install
+```
+
+3. Install dependencies for frontend
+```bash
+cd frontend
+npm install
+```
+
+4. Create a .env file in the backend directory
+```bash
+PORT=5001
+MONGODB_URI=your_mongodb_connection_string
+JWT_SECRET=your_jwt_secret
+```
+
+5. Create a .env file in the frontend directory
+```bash
+VITE_SERVER_URL=http://localhost:5001
+```
+
+### Running the Application
+1. Start the backend server
+```bash
+cd backend
+npm run dev
+```
+2. Start the frontend application
+```bash
+cd frontend
+npm run dev
+```
